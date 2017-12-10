@@ -30,6 +30,13 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+
+    // Set AdMobAds options:
+    admob.setOptions({
+        publisherId:          "ca-app-pub-6833525801886116/2095512706"
+    });
+
+
     },
     // deviceready Event Handler
     //
@@ -39,7 +46,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-          var urlfull= 'http://www.player100regras.com.br?p=1&u=';        
+          var urlfull= 'http://dev.100regras.com.br?p=1&u=';        
           window.open(urlfull+device.uuid, '_self');   
           var notificationOpenedCallback = function(jsonData) {
             //console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));

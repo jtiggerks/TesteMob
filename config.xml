@@ -11,11 +11,11 @@
     <name>Teste Mob</name>
 
     <description>
-        App player100regras
+        App Teste Mob
     </description>
 
     <author email="jtiggerks@gmail.com" href="perfiljt.com.br">
-         App player100regras
+         App Teste Mob
     </author>
 
     <!--
@@ -24,6 +24,7 @@
         permission on your app, which PhoneGap requires.
     -->
  
+    <gap:plugin name="phonegap-admob" source="npm"/>
 
     <!-- Customize your app and platform with the preference element. -->
     <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
@@ -156,7 +157,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
-     <allow-navigation href="http://www.player100regras.com.br/*" />
+     <allow-navigation href="http://dev.100regras.com.br/*" />
  
 
 </widget>
