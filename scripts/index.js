@@ -50,7 +50,7 @@ var app = {
         app.receivedEvent('deviceready');
 
             admob.setOptions({
-            publisherId:          "ca-app-pub-8867978711440765/7697866134"  // Required
+            publisherId:          "ca-app-pub-6833525801886116~6338063942"  // Required
             // interstitialAdId:     "ca-app-pub-8867978711440765/9233474937"
             });
 
