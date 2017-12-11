@@ -68,7 +68,7 @@
     
     <preference name="EnableViewportScale" value="true" />
     
-    <plugin name="cordova-admob-sdk" spec="~0.13.1" />
+    <gap:plugin name="phonegap-admob" source="npm"/>
  
 
     <!-- Core plugins -->

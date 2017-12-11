@@ -31,11 +31,16 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
 
-    // Set AdMobAds options:
-    admob.setOptions({
-        publisherId:          "ca-app-pub-6833525801886116/2095512706"
-    });
 
+       admob.setOptions({
+         publisherId:          "ca-app-pub-6833525801886116/2095512706"  // Required
+         interstitialAdId:     "ca-app-pub-6833525801886116/2095512706"
+       });
+
+    
+       admob.createBannerView(); 
+       admob.requestInterstitialAd();
+                 
 
     },
     // deviceready Event Handler
