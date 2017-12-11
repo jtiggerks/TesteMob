@@ -1,200 +1,117 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 var app = {
-    // global vars
-    autoShowInterstitial: false,
-    progressDialog: document.getElementById("progressDialog"),
-    spinner: document.getElementById("spinner"),
-    weinre: {
-        enabled: false,
-        ip: '', // ex. http://192.168.1.13
-        port: '', // ex. 9090
-        targetApp: '' // ex. see weinre docs
-    },
-
     // Application Constructor
-    initialize: function () {
-        if ((/(ipad|iphone|ipod|android)/i.test(navigator.userAgent))) {
-            document.addEventListener('deviceready', this.onDeviceReady, false);
-        } else {
-            app.onDeviceReady();
-        }
-    },
-    // Must be called when deviceready is fired so AdMobAds plugin will be ready
-    initAds: function () {
-        var isAndroid = (/(android)/i.test(navigator.userAgent));
-        var adPublisherIds = {
-           
-            android: {
-                banner: 'ca-app-pub-6833525801886116~6338063942',
-                interstitial: 'ca-app-pub-6833525801886116/2095512706'
-            }
-        };
-        var admobid;
-
-        if (isAndroid) {
-            admobid = adPublisherIds.android;
-        } else {
-            admobid = adPublisherIds.ios;
-        }
-        if (window.admob) {
-            admob.setOptions({
-                publisherId: admobid.banner,
-                interstitialAdId: admobid.interstitial,
-                bannerAtTop: true, // set to true, to put banner at top
-                overlap: false, // set to true, to allow banner overlap webview
-                offsetStatusBar: true, // set to true to avoid ios7 status bar overlap
-                isTesting: true, // receiving test ads (do not test with real ads as your account will be banned)
-                autoShowBanner: true, // auto show banners ad when loaded
-                autoShowInterstitial: false // auto show interstitials ad when loaded
-            });
-        } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
-        }
+    initialize: function() {
+  
+        this.bindEvents();
+        
     },
     // Bind Event Listeners
-    bindAdEvents: function () {
-        if (window.admob) {
-            document.addEventListener("orientationchange", this.onOrientationChange, false);
-            document.addEventListener(admob.events.onAdLoaded, this.onAdLoaded, false);
-            document.addEventListener(admob.events.onAdFailedToLoad, this.onAdFailedToLoad, false);
-            document.addEventListener(admob.events.onAdOpened, function (e) { }, false);
-            document.addEventListener(admob.events.onAdClosed, function (e) { }, false);
-            document.addEventListener(admob.events.onAdLeftApplication, function (e) { }, false);
-            document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) { }, false);
-        } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
-        }
-    },
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
 
-    // -----------------------------------
-    // Events.
-    // The scope of 'this' is the event.
-    // -----------------------------------
-    onOrientationChange: function () {
-        app.onResize();
-    },
-    onDeviceReady: function () {
-        var weinre,
-            weinreUrl;
+  
+ var admobid = {}
 
-        document.removeEventListener('deviceready', app.onDeviceReady, false);
+  admobid = {
+    banner: 'ca-app-pub-6833525801886116/2095512706',
+    interstitial: 'ca-app-pub-6833525801886116/2095512706',
+  }
+ 
 
-        if (app.weinre.enabled) {
-            console.log('Loading weinre...');
-            weinre = document.createElement('script');
-            weinreUrl = app.weinre.ip + ":" + app.weinre.port;
-            weinreUrl += '/target/target-script-min.js';
-            weinreUrl += '#' + app.weinre.targetApp;
-            weinre.setAttribute('src', weinreUrl);
-            document.head.appendChild(weinre);
-        }
+document.addEventListener('deviceready', function() {
+  admob.banner.config({
+    id: admobid.banner,
+    isTesting: true,
+    autoShow: true,
+  })
+  admob.banner.prepare()
 
-        if (window.admob) {
-            console.log('Binding ad events...');
-            app.bindAdEvents();
-            console.log('Initializing ads...');
-            app.initAds();
-        } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
-        }
-    },
-    onAdLoaded: function (e) {
-        app.showProgress(false);
-        if (window.admob && e.adType === window.admob.AD_TYPE.INTERSTITIAL) {
-            if (app.autoShowInterstitial) {
-                window.admob.showInterstitialAd();
-            } else {
-                alert("Interstitial is available. Click on 'Show Interstitial' to show it.");
-            }
-        }
-    },
-    onAdFailedToLoad: function (e) {
-        app.showProgress(false);
-        alert("Could not load ad: " + JSON.stringify(e));
-    },
-    onResize: function () {
-        var msg = 'Web view size: ' + window.innerWidth + ' x ' + window.innerHeight;
-        document.getElementById('sizeinfo').innerHTML = msg;
-    },
+  admob.interstitial.config({
+    id: admobid.interstitial,
+    isTesting: true,
+    autoShow: true,
+  })
+  admob.interstitial.prepare()
 
-    // -----------------------------------
-    // App buttons functionality
-    // -----------------------------------
-    startBannerAds: function () {
-        if (window.admob) {
-            app.showProgress(true);
-            window.admob.createBannerView(function () { }, function (e) {
-                alert(JSON.stringify(e));
+  document.getElementById('showAd').disabled = true
+  document.getElementById('showAd').onclick = function() {
+    admob.interstitial.show()
+  }
+
+}, false)
+
+document.addEventListener('admob.banner.events.LOAD_FAIL', function(event) {
+  alert(event)
+})
+
+document.addEventListener('admob.interstitial.events.LOAD_FAIL', function(event) {
+  alert(event)
+})
+
+document.addEventListener('admob.interstitial.events.LOAD', function(event) {
+  alert(event)
+  document.getElementById('showAd').disabled = false
+})
+
+document.addEventListener('admob.interstitial.events.CLOSE', function(event) {
+  alert(event)
+
+  admob.interstitial.prepare()
+})
+
+
+
+
+
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+
+            admob.setOptions({
+            publisherId:          "ca-app-pub-8867978711440765/7697866134"  // Required
+            // interstitialAdId:     "ca-app-pub-8867978711440765/9233474937"
             });
-        } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
-        }
-    },
-    removeBannerAds: function () {
-        if (window.admob) {
-            app.showProgress(false);
-            window.admob.destroyBannerView();
-        } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
-        }
-    },
-    showBannerAds: function () {
-        if (window.admob) {
-            app.showProgress(false);
-            window.admob.showBannerAd(true, function () { }, function (e) {
-                alert(JSON.stringify(e));
-            });
-        } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
-        }
-    },
-    hideBannerAds: function () {
-        if (window.admob) {
-            app.showProgress(false);
-            window.admob.showBannerAd(false);
-        } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
-        }
-    },
-    requestInterstitial: function (autoshow) {
-        if (window.admob) {
-            app.showProgress(true);
-            app.autoShowInterstitial = autoshow;
-            window.admob.requestInterstitialAd(function () { }, function (e) {
-                alert(JSON.stringify(e));
-            });
-        } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
-        }
-    },
-    showInterstitial: function () {
-        if (window.admob) {
-            app.showProgress(false);
-            window.admob.showInterstitialAd(function () { }, function (e) {
-                alert(JSON.stringify(e));
-            });
-        } else {
-            alert('cordova-admob plugin not ready.\nAre you in a desktop browser? It won\'t work...');
-        }
-    },
-    showProgress: function (show) {
-        if (show) {
-            addClass(app.spinner, "animated");
-            removeClass(app.progressDialog, "hidden");
-        } else {
-            addClass(app.progressDialog, "hidden");
-            removeClass(app.spinner, "animated");
-        }
+
+            //  // Start showing banners (atomatic when autoShowBanner is set to true)
+            admob.createBannerView();
+
+            // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+            admob.requestInterstitialAd();
+                 
+
+          },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
     }
 };
 
-function removeClass(elem, cls) {
-    var str;
-    do {
-        str = " " + elem.className + " ";
-        elem.className = str.replace(" " + cls + " ", " ").replace(/^\s+|\s+$/g, "");
-    } while (str.match(cls));
-}
-
-function addClass(elem, cls) {
-    elem.className += (" " + cls);
-} 
+                  
+   
