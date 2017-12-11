@@ -68,9 +68,7 @@
     
     <preference name="EnableViewportScale" value="true" />
     
-    <plugin name="cordova-admob-sdk" spec="~0.13.1">
-        <variable name="PLAY_SERVICES_VERSION" value="11.6.0" />
-    </plugin>
+    <plugin name="cordova-plugin-admob-free" spec="~0.12.0" />
 
     <!-- Core plugins -->
     <plugin name="cordova-plugin-device" value="org.apache.cordova.Device" /> 
