@@ -35,8 +35,8 @@ var app = {
  var admobid = {}
 
   admobid = {
-    banner: 'ca-app-pub-6833525801886116/2095512706',
-    interstitial: 'ca-app-pub-6833525801886116/2095512706',
+    banner: 'ca-app-pub-6833525801886116/1394241912',
+    interstitial: 'ca-app-pub-6833525801886116/1394241912',
   }
  
 
