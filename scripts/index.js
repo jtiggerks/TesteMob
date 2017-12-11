@@ -59,7 +59,9 @@ var app = {
 
             // Request interstitial (will present automatically when autoShowInterstitial is set to true)
             admob.requestInterstitialAd();
-      
+
+
+                 
 
           },
     // Update DOM on a Received Event
