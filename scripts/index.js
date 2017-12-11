@@ -31,16 +31,13 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
 
-
-       admob.setOptions({
-         publisherId:          "ca-app-pub-6833525801886116/2095512706"  // Required
-         interstitialAdId:     "ca-app-pub-6833525801886116/2095512706"
-       });
-
-    
-       admob.createBannerView(); 
-       admob.requestInterstitialAd();
+ 
+        admob.initAdmob("ca-app-pub-6833525801886116/2095512706","ca-app-pub-6833525801886116/2095512706");
                  
+        document.addEventListener(admob.Event.onInterstitialReceive, this.onInterstitialReceive, false);
+        admob.cacheInterstitial();
+
+        admob.showBanner(admob.BannerSize.BANNER, admob.Position.BOTTOM_APP);
 
     },
     // deviceready Event Handler
