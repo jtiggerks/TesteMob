@@ -75,7 +75,7 @@
     <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2" />
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
-    
+    <plugin name="phonegap-admob" source="npm"/>
 
     
     <!-- Third party plugins -->
