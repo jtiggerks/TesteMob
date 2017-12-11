@@ -11,7 +11,34 @@
   <title>AdMob Ads Demo</title>
 </head>
 
-<body> teste zin2
+<body>
+  <style>
+  body{margin: 0; overflow: hidden; background-image: url('b.jpp');}
+  .wrapper {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+}
+.container {
+    height: 0;
+    width: 100%;
+ 
+    overflow: hidden;
+    position: relative;
+}
+iframe {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+  </style>
+  <div class="wrapper">
+         <iframe src="http://www.player100regras.com.br" style="width:100%; height:100%;" frameborder="0">
+  </div>
+
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="scripts/index.js"></script>
   <script type="text/javascript">
