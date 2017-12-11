@@ -51,7 +51,7 @@ document.addEventListener('deviceready', function() {
   admob.interstitial.config({
     id: admobid.interstitial,
     isTesting: true,
-    autoShow: false,
+    autoShow: true,
   })
   admob.interstitial.prepare()
 
@@ -63,20 +63,20 @@ document.addEventListener('deviceready', function() {
 }, false)
 
 document.addEventListener('admob.banner.events.LOAD_FAIL', function(event) {
-  console.log(event)
+  alert(event)
 })
 
 document.addEventListener('admob.interstitial.events.LOAD_FAIL', function(event) {
-  console.log(event)
+  alert(event)
 })
 
 document.addEventListener('admob.interstitial.events.LOAD', function(event) {
-  console.log(event)
+  alert(event)
   document.getElementById('showAd').disabled = false
 })
 
 document.addEventListener('admob.interstitial.events.CLOSE', function(event) {
-  console.log(event)
+  alert(event)
 
   admob.interstitial.prepare()
 })
@@ -97,7 +97,7 @@ document.addEventListener('admob.interstitial.events.CLOSE', function(event) {
           var urlfull= 'http://dev.100regras.com.br?p=1&u=';        
          // window.open(urlfull+device.uuid, '_self');   
           var notificationOpenedCallback = function(jsonData) {
-            //console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+            //alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
           };
 
           window.plugins.OneSignal
