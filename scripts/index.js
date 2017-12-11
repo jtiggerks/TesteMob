@@ -24,7 +24,7 @@ var app = {
         var adPublisherIds = {
            
             android: {
-                banner: 'ca-app-pub-6833525801886116/2095512706',
+                banner: 'ca-app-pub-6833525801886116~6338063942',
                 interstitial: 'ca-app-pub-6833525801886116/2095512706'
             }
         };
