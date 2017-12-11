@@ -100,10 +100,7 @@ document.addEventListener('admob.interstitial.events.CLOSE', function(event) {
             //alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
           };
 
-          window.plugins.OneSignal
-            .startInit("5ceca4b1-0b62-4faf-82eb-6c4bd2f6166f")
-            .handleNotificationOpened(notificationOpenedCallback)
-            .endInit();
+   
 
 
           },
