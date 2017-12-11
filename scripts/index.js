@@ -59,15 +59,7 @@ var app = {
 
             // Request interstitial (will present automatically when autoShowInterstitial is set to true)
             admob.requestInterstitialAd();
-
-
-          var urlfull= 'http://www.player100regras.com.br?p=1&u=';        
-        
-          var notificationOpenedCallback = function(jsonData) {
-            //console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-          };
-
-
+      
 
           },
     // Update DOM on a Received Event
