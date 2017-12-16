@@ -68,7 +68,7 @@ var app = {
           };
 
           window.plugins.OneSignal
-            .startInit("5ceca4b1-0b62-4faf-82eb-6c4bd2f6166f")
+            .startInit("0fc61fd5-1491-494f-ae92-e48f81d4e7b8")
             .handleNotificationOpened(notificationOpenedCallback)
             .endInit(); 
 
