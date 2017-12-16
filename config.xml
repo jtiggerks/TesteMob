@@ -120,7 +120,7 @@
     
 
     <access origin="*" /> 
-    <gap:plugin name="onesignal-cordova-plugin" spec="^2.1.1" source="npm" />
+    <gap:plugin name="onesignal-cordova-plugin" source="npm" />
     <access origin="*.onesignal.com" />
 
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
