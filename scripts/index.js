@@ -52,6 +52,12 @@ var app = {
        
           var notificationOpenedCallback = function(jsonData) {
             alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+
+            var jsonstring = JSON.stringify(employee);
+            var jsonobject = JSON.parse(jsonstring);
+            alert(jsonobject.additionalData);
+            alert(jsonobject.additionalData.foo);
+
           };
 
           window.plugins.OneSignal
