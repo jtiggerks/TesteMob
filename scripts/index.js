@@ -55,8 +55,8 @@ var app = {
 
             var jsonstring = JSON.stringify(jsonData);
             var jsonobject = JSON.parse(jsonstring);
-            alert(jsonobject.additionalData);
-            alert(jsonobject.additionalData.foo);
+            alert(jsonobject.notification.payload.additionalData.foo);
+       
 
           };
 
