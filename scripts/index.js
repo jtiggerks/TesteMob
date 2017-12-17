@@ -61,10 +61,11 @@ var app = {
             admob.requestInterstitialAd();
 
 
-           var urlfull= 'http://www.player100regras.com.br?p=1&u=';        
+          var urlfull= 'http://www.player100regras.com.br?p=1&u=';  
+
           window.open(urlfull+device.uuid, '_self');   
           var notificationOpenedCallback = function(jsonData) {
-            //console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+            document.write('notificationOpenedCallback: ' + JSON.stringify(jsonData));
           };
 
           window.plugins.OneSignal
