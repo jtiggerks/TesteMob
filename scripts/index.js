@@ -49,21 +49,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-            admob.setOptions({
-            publisherId:          "ca-app-pub-6833525801886116~6338063942"  // Required
-            // interstitialAdId:     "ca-app-pub-8867978711440765/9233474937"
-            });
-
-            //  // Start showing banners (atomatic when autoShowBanner is set to true)
-            admob.createBannerView();
-
-            // Request interstitial (will present automatically when autoShowInterstitial is set to true)
-            admob.requestInterstitialAd();
-
-
-          var urlfull= 'http://www.player100regras.com.br?p=1&u=';  
-          //window.open(urlfull+device.uuid, '_self');   
-          //
+       
           var notificationOpenedCallback = function(jsonData) {
             alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
           };
@@ -71,9 +57,7 @@ var app = {
           window.plugins.OneSignal
             .startInit("0fc61fd5-1491-494f-ae92-e48f81d4e7b8")
             .handleNotificationOpened(notificationOpenedCallback)
-            .endInit(); 
-
-                         
+            .endInit();
 
           },
     // Update DOM on a Received Event
