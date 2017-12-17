@@ -84,8 +84,8 @@
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
     
 
-    <plugin name="phonegap-admob" source="npm"/>  
- 
+   
+
 
     
     <!-- Third party plugins -->
@@ -120,8 +120,14 @@
     
 
     <access origin="*" /> 
-    <gap:plugin name="onesignal-cordova-plugin" spec="^2.1.1" source="npm" />
+    
+    <plugin name="cordova-plugin-admobpro" source="npm"/>  
+
+    <gap:plugin name="onesignal-cordova-plugin" source="npm" />
+
     <preference name="android-build-tool" value="gradle" />
+    
+    <gap:plugin name="cordova-plugin-android-support-v4" source="npm" />
 
     <access origin="*.onesignal.com" />
 
