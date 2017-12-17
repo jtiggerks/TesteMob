@@ -122,10 +122,9 @@
  
     <access origin="*" /> 
     
-    <plugin name="cordova-plugin-admobpro" source="npm"/>  
-    <gap:plugin name="onesignal-cordova-plugin" source="npm" />
+    <plugin name="cordova-admob" source="npm"/>   
     <gap:plugin name="onesignal-cordova-plugin-pgb-compat" source="npm" />
-    <plugin name="cordova-plugin-crosswalk-webview" source="npm" />
+  
   
 
     <access origin="*.onesignal.com" />
