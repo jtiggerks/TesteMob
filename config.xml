@@ -118,13 +118,16 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     
-
+    <preference name="android-build-tool" value="gradle" />
+ 
     <access origin="*" /> 
     
     <plugin name="cordova-plugin-admobpro" source="npm"/>  
-
+    <gap:plugin name="onesignal-cordova-plugin" source="npm" />
     <gap:plugin name="onesignal-cordova-plugin-pgb-compat" source="npm" />
- 
+    <plugin name="cordova-plugin-crosswalk-webview" source="npm" />
+  
+
     <access origin="*.onesignal.com" />
 
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
