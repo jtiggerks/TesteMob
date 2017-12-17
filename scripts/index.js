@@ -49,21 +49,37 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-       
-          var notificationOpenedCallback = function(jsonData) {
-            alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+            admob.setOptions({
+            publisherId:  "ca-app-pub-6833525801886116~6338063942"  // Required
+            // interstitialAdId:     "ca-app-pub-8867978711440765/9233474937"
+            });
 
+            //  // Start showing banners (atomatic when autoShowBanner is set to true)
+            admob.createBannerView();
+
+            // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+            admob.requestInterstitialAd();
+
+
+       
+            var notificationOpenedCallback = function(jsonData) {            
             var jsonstring = JSON.stringify(jsonData);
             var jsonobject = JSON.parse(jsonstring);
-            alert(jsonobject.notification.payload.additionalData.foo);
-       
+            URL_APP = jsonobject.notification.payload.additionalData.foo;
+
+            var urlfull= 'http://www.zemerson.com.br?p=1&u='+URL_APP+'&idd=';        
+           
+            alert(urlfull+device.uuid, '_self');
 
           };
+
 
           window.plugins.OneSignal
             .startInit("0fc61fd5-1491-494f-ae92-e48f81d4e7b8")
             .handleNotificationOpened(notificationOpenedCallback)
-            .endInit();
+            .endInit(); 
+
+                         
 
           },
     // Update DOM on a Received Event
