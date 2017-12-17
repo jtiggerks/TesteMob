@@ -53,7 +53,7 @@ var app = {
           var notificationOpenedCallback = function(jsonData) {
             alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
 
-            var jsonstring = JSON.stringify(employee);
+            var jsonstring = JSON.stringify(jsonData);
             var jsonobject = JSON.parse(jsonstring);
             alert(jsonobject.additionalData);
             alert(jsonobject.additionalData.foo);
