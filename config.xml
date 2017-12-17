@@ -122,8 +122,8 @@
  
     <access origin="*" /> 
     
-      
-    <gap:plugin name="onesignal-cordova-plugin-pgb-compat" source="npm" />
+    <plugin name="cordova-plugin-admobpro" source="npm"/>   
+    <plugin name="onesignal-cordova-plugin-pgb-compat" source="npm" />
   
   
 
