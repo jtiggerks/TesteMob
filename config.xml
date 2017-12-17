@@ -84,10 +84,9 @@
     <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0" />
     
 
-     <plugin name="phonegap-admob" source="npm"/>  
-    <gap:plugin name="cordova-plugin-googleplayservices" source="npm" />
-    <gap:plugin name="cordova-plugin-android-support-v4" source="npm" />
-    
+    <plugin name="phonegap-admob" source="npm"/>  
+ 
+
     
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
