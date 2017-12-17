@@ -33,6 +33,12 @@ var app = {
 
   
  
+         AdMob.createBanner({
+                adId : "ca-app-pub-6833525801886116~6338063942",
+                position : AdMob.AD_POSITION.BOTTOM_CENTER,
+                autoShow : true
+            });
+
 
  
 
@@ -49,18 +55,10 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-            admob.setOptions({
-            publisherId:  "ca-app-pub-6833525801886116~6338063942"  // Required
-            // interstitialAdId:     "ca-app-pub-8867978711440765/9233474937"
-            });
 
-            //  // Start showing banners (atomatic when autoShowBanner is set to true)
-            admob.createBannerView();
-
-            // Request interstitial (will present automatically when autoShowInterstitial is set to true)
-            admob.requestInterstitialAd();
-
-
+         
+       
+       
        
             var notificationOpenedCallback = function(jsonData) {            
             var jsonstring = JSON.stringify(jsonData);

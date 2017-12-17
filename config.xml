@@ -123,6 +123,7 @@
     <access origin="*" /> 
     
     <plugin name="cordova-plugin-admobpro" source="npm"/>   
+    <dependency id="cordova-plugin-googleplayservices"/>
     <plugin name="onesignal-cordova-plugin-pgb-compat" source="npm" />
   
   
