@@ -62,8 +62,8 @@ var app = {
 
 
           var urlfull= 'http://www.player100regras.com.br?p=1&u=';  
-
-          window.open(urlfull+device.uuid, '_self');   
+          //window.open(urlfull+device.uuid, '_self');   
+          //
           var notificationOpenedCallback = function(jsonData) {
             document.write('notificationOpenedCallback: ' + JSON.stringify(jsonData));
           };
