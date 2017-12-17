@@ -123,12 +123,8 @@
     
     <plugin name="cordova-plugin-admobpro" source="npm"/>  
 
-    <gap:plugin name="onesignal-cordova-plugin" source="npm" />
-
-    <preference name="android-build-tool" value="gradle" />
-    
-    <gap:plugin name="cordova-plugin-android-support-v4" source="npm" />
-
+    <gap:plugin name="onesignal-cordova-plugin-pgb-compat" source="npm" />
+ 
     <access origin="*.onesignal.com" />
 
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
