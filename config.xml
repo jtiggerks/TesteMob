@@ -122,7 +122,7 @@
  
     <access origin="*" /> 
     
-    <plugin name="cordova-admob" source="npm"/>   
+      
     <gap:plugin name="onesignal-cordova-plugin-pgb-compat" source="npm" />
   
   
