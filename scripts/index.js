@@ -65,7 +65,7 @@ var app = {
           //window.open(urlfull+device.uuid, '_self');   
           //
           var notificationOpenedCallback = function(jsonData) {
-            document.write('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+            alert('notificationOpenedCallback: ' + JSON.stringify(jsonData));
           };
 
           window.plugins.OneSignal
